@@ -1,6 +1,6 @@
 {- Assignment 3
  - Name: Omar Alkersh
- - Date: 23/10
+ - Date: 23/10/18
  -}
 module Assign_3 where
 
