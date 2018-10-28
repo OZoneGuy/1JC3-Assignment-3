@@ -1,6 +1,6 @@
 {- Assignment 3 Extra Credit
  - Name: Omar Alkersh
- - Date: TODO add of completion
+ - Date: 28/10/18
  -}
 module Assign_3_ExtraCredit where
 import Assign_3
@@ -21,7 +21,7 @@ polyAltDegree (SumAlt x y) = max (polyAltDegree x) (polyAltDegree y)
 
 polyAltDeriv :: Num a => PolyAlt a -> PolyAlt a
 polyAltDeriv (Monomial x y) | y == 0 = Monomial 0 0
-                            | otherwise = Monomial (x* fromInteger y) (y-1)
+                            | otherwise = Monomial (x * fromInteger y) (y-1)
 polyAltDeriv (SumAlt x y) = SumAlt (polyAltDeriv x) (polyAltDeriv y)
 
 polyAltProd :: Num a => PolyAlt a -> PolyAlt a -> PolyAlt a
@@ -46,4 +46,7 @@ polyToPolyAlt (Coef x) = Monomial x 0
 polyToPolyAlt (Sum x y) = SumAlt (polyToPolyAlt x) (polyToPolyAlt y)
 polyToPolyAlt (Prod x y) = polyAltProd (polyToPolyAlt x) (polyToPolyAlt y)
 
---TODO implement polyAltToPoly
+polyAltToPoly :: (Num a, Eq a) => PolyAlt a -> Poly a
+polyAltToPoly (Monomial x y) | y == 1 = Prod X (Coef x)
+                             | otherwise = Prod X (polyAltToPoly (Monomial x (y-1)))
+polyAltToPoly (SumAlt x y) = Sum (polyAltToPoly x) (polyAltToPoly y)
