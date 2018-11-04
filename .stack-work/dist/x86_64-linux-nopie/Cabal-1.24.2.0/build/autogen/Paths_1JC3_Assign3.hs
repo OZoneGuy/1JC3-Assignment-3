@@ -29,12 +29,12 @@ version :: Version
 version = Version [0,1,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
-bindir     = "/media/omar/1C36C22D36C207AA/Users/oalke/Documents/COMPSCI 1JC3/1JC3-Assign3/.stack-work/install/x86_64-linux-nopie/lts-8.24/8.0.2/bin"
-libdir     = "/media/omar/1C36C22D36C207AA/Users/oalke/Documents/COMPSCI 1JC3/1JC3-Assign3/.stack-work/install/x86_64-linux-nopie/lts-8.24/8.0.2/lib/x86_64-linux-ghc-8.0.2/1JC3-Assign3-0.1.0.0-BHT3LfknJd2FpPA0OhdTqr"
-dynlibdir  = "/media/omar/1C36C22D36C207AA/Users/oalke/Documents/COMPSCI 1JC3/1JC3-Assign3/.stack-work/install/x86_64-linux-nopie/lts-8.24/8.0.2/lib/x86_64-linux-ghc-8.0.2"
-datadir    = "/media/omar/1C36C22D36C207AA/Users/oalke/Documents/COMPSCI 1JC3/1JC3-Assign3/.stack-work/install/x86_64-linux-nopie/lts-8.24/8.0.2/share/x86_64-linux-ghc-8.0.2/1JC3-Assign3-0.1.0.0"
-libexecdir = "/media/omar/1C36C22D36C207AA/Users/oalke/Documents/COMPSCI 1JC3/1JC3-Assign3/.stack-work/install/x86_64-linux-nopie/lts-8.24/8.0.2/libexec"
-sysconfdir = "/media/omar/1C36C22D36C207AA/Users/oalke/Documents/COMPSCI 1JC3/1JC3-Assign3/.stack-work/install/x86_64-linux-nopie/lts-8.24/8.0.2/etc"
+bindir     = "/home/omar/Documents/COMPSCI/1JC3/Assignment-3/.stack-work/install/x86_64-linux-nopie/lts-8.24/8.0.2/bin"
+libdir     = "/home/omar/Documents/COMPSCI/1JC3/Assignment-3/.stack-work/install/x86_64-linux-nopie/lts-8.24/8.0.2/lib/x86_64-linux-ghc-8.0.2/1JC3-Assign3-0.1.0.0-BHT3LfknJd2FpPA0OhdTqr"
+dynlibdir  = "/home/omar/Documents/COMPSCI/1JC3/Assignment-3/.stack-work/install/x86_64-linux-nopie/lts-8.24/8.0.2/lib/x86_64-linux-ghc-8.0.2"
+datadir    = "/home/omar/Documents/COMPSCI/1JC3/Assignment-3/.stack-work/install/x86_64-linux-nopie/lts-8.24/8.0.2/share/x86_64-linux-ghc-8.0.2/1JC3-Assign3-0.1.0.0"
+libexecdir = "/home/omar/Documents/COMPSCI/1JC3/Assignment-3/.stack-work/install/x86_64-linux-nopie/lts-8.24/8.0.2/libexec"
+sysconfdir = "/home/omar/Documents/COMPSCI/1JC3/Assignment-3/.stack-work/install/x86_64-linux-nopie/lts-8.24/8.0.2/etc"
 
 getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath
 getBinDir = catchIO (getEnv "1JC3_Assign3_bindir") (\_ -> return bindir)
