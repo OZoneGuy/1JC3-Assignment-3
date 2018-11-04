@@ -95,25 +95,31 @@ polyAltNewton p s t = let
 {-------------------------------------------------------------------
  - polyToPolyAlt
  -------------------------------------------------------------------
- -
+ - turns Poly, defined in Assign_3, value to PolyAlt
+ - Uses recursio where appropriate, def 3-4
+ - base cases defined in def 1-2
+ - uses polyAltProd in def.4 to find the product of x and y
  -}
 
 polyToPolyAlt :: (Num a, Eq a) => Poly a -> PolyAlt a
-polyToPolyAlt X = Monomial 1 1
-polyToPolyAlt (Coef x) = Monomial x 0
-polyToPolyAlt (Sum x y) = SumAlt (polyToPolyAlt x) (polyToPolyAlt y)
-polyToPolyAlt (Prod x y) = polyAltProd (polyToPolyAlt x) (polyToPolyAlt y)
+polyToPolyAlt X = Monomial 1 1 -- def.1
+polyToPolyAlt (Coef x) = Monomial x 0 --def.2
+polyToPolyAlt (Sum x y) = SumAlt (polyToPolyAlt x) (polyToPolyAlt y) -- def.3
+polyToPolyAlt (Prod x y) = polyAltProd (polyToPolyAlt x) (polyToPolyAlt y) --def.
 
 {-------------------------------------------------------------------
  - polyAltToPoly
  -------------------------------------------------------------------
- -
+ - Turns PolyAlt values to Poly, defined in Assign_3.
+ - Uses recursion in def.1.3 and def.2
+ - base casses defined in def.1.1-2
  -}
 
 polyAltToPoly :: (Num a, Eq a) => PolyAlt a -> Poly a
-polyAltToPoly (Monomial x y) | y == 0 = Coef x
-                             | y > 0 = Prod X (polyAltToPoly (Monomial x (y-1)))
-polyAltToPoly (SumAlt x y) = Sum (polyAltToPoly x) (polyAltToPoly y)
+polyAltToPoly (Monomial x y) | x == 0 = Coef 0 --def.1.1
+                             | y == 0 = Coef x --def.1.2
+                             | y > 0  = Prod X (polyAltToPoly (Monomial x (y-1))) --def.1.3
+polyAltToPoly (SumAlt x y) = Sum (polyAltToPoly x) (polyAltToPoly y) --def.2
 
 (-->) :: Bool -> Bool -> Bool
 a --> b = not a || b
